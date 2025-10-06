@@ -35,7 +35,6 @@ pip3 install --user wheel<br>
 Desktop development with C++<br>
 Game development with C++<br>
 <img width="1536" height="1020" alt="image" src="https://github.com/user-attachments/assets/e37d5da7-ca02-46dc-97f2-10399caff5ca" />
-
 ## 1.6 安装 Unreal Engine
 下载 Unreal Engine 源码： UnrealEngine-carla.<br>
 选择UE4.26分支版本
@@ -56,30 +55,29 @@ GenerateProjectFiles.bat<br>
 等待成功之后在\UnrealEngine\Engine\Binaries\Win64下点击UE4Editor.exe，第一次加载会很慢，卡在45%或者75%，95%是正常的，等待渲染好出现UE界面即可。<br>
 <img width="416" height="188" alt="image" src="https://github.com/user-attachments/assets/864a741c-7089-4ecf-819e-3a4afc083549" />
 设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。<br>
-
 # 2. 安装 CARLA
 ## 2.1 下载 CARLA 源码
 根据所需版本下载 CARLA 源码：<br>
 必须使用git，否则后续需要手动改版本，麻烦<br>
 open git bash here<br>
-设置 HTTP 代理
-export HTTP_PROXY="http://127.0.0.1:7890"
-设置 HTTPS 代理
-export HTTPS_PROXY="http://127.0.0.1:7890"
-设置所有协议的代理 (通常 Git 也能识别这个)
-export ALL_PROXY="socks5://127.0.0.1:7890"
-取消所有的代理
-unset HTTP_PROXY
-unset HTTPS_PROXY
-unset ALL_PROXY
-端口号为自己VPN软件的端口号
+设置 HTTP 代理<br>
+export HTTP_PROXY="http://127.0.0.1:7890"<br>
+设置 HTTPS 代理<br>
+export HTTPS_PROXY="http://127.0.0.1:7890"<br>
+设置所有协议的代理 (通常 Git 也能识别这个)<br>
+export ALL_PROXY="socks5://127.0.0.1:7890"<br>
+取消所有的代理<br>
+unset HTTP_PROXY<br>
+unset HTTPS_PROXY<br>
+unset ALL_PROXY<br>
+端口号为自己VPN软件的端口号<br>
 git clone -b 0.9.15 https://github.com/carla-simulator/carla.git<br>
 ## 2.2 下载 CARLA 资产库
-打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.15 版本资产库：
-https://carla-assets.s3.us-east-005.backblazeb2.com/20231108_c5101a5.tar.gz
-将下载的文件解压重命名至 carla/Unreal/CarlaUE4/Content/Carla 目录。
-其中需注意，carla已不再使用该txt文件中下载链接指向的AWS云服务，新的资产库文件使用backblazeb2云服务，下载链接应更新为https://carla-assets.s3.us-east-005.backblazeb2.com/PUT_FILE_ID_HERE.tar.gz。
-解压需要几分钟，注意路径是Content/Carla
+打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.15 版本资产库：<br>
+https://carla-assets.s3.us-east-005.backblazeb2.com/20231108_c5101a5.tar.gz<br>
+将下载的文件解压重命名至 carla/Unreal/CarlaUE4/Content/Carla 目录。<br>
+其中需注意，carla已不再使用该txt文件中下载链接指向的AWS云服务，新的资产库文件使用backblazeb2云服务，下载链接应更新为https://carla-assets.s3.us-east-005.backblazeb2.com/PUT_FILE_ID_HERE.tar.gz。<br>
+解压需要几分钟，注意路径是Content/Carla<br>
 # 准备开始编译！！！
 ## 2.3 编译 Python API
 ### 版本更新-2025/10/06
