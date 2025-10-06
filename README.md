@@ -34,13 +34,19 @@ pip3 install --user wheel<br>
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0971f3e-95ef-4254-9d53-ed2f80af94bf" />
 Desktop development with C++<br>
 Game development with C++<br>
+<img width="1536" height="1020" alt="image" src="https://github.com/user-attachments/assets/e37d5da7-ca02-46dc-97f2-10399caff5ca" />
+
 ## 1.6 安装 Unreal Engine
 下载 Unreal Engine 源码： UnrealEngine-carla.<br>
 选择UE4.26分支版本
 <img width="2479" height="1755" alt="image" src="https://github.com/user-attachments/assets/d31aecb0-3b28-44ba-9967-0807170a1450" />
 github主页：<https://github.com/CarlaUnreal/UnrealEngine/tree/carla><br>
-在解压后的文件夹中执行以下两个命令：<br>
+<img width="513" height="99" alt="image" src="https://github.com/user-attachments/assets/d9a072f1-b1cb-40e5-ac45-75a7bdfe9734" />
+399MB解压需要20-25分钟<br>
+解压会产生两层UnrealEngine-carla路径记得删除一层
+在解压后的文件夹中先后执行以下两个命令：<br>
 Setup.bat<br>
+需要2h
 GenerateProjectFiles.bat<br>
 使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。<br>
 
