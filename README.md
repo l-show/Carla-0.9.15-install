@@ -168,6 +168,15 @@ make: *** [CarlaUE4Editor] 错误 6
 等待30-60min<br>
 <img width="3790" height="2076" alt="image" src="https://github.com/user-attachments/assets/402d27ca-afef-4f35-b57b-713e935e40f5" /><br>
 # 成功了...！！！
+# 3.X 启动脚本
+先安装依赖<br>
+future<br>
+numpy; python_version < '3.0'<br>
+numpy==1.18.4; python_version >= '3.0'<br>
+pygame<br>
+matplotlib<br>
+open3d<br>
+Pillow<br>
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
