@@ -25,7 +25,6 @@ pip3 install --user wheel<br>
 <img width="1044" height="87" alt="image" src="https://github.com/user-attachments/assets/fbb910a2-3294-4879-a4e3-3c17a24544a2" />
 <img width="1237" height="109" alt="image" src="https://github.com/user-attachments/assets/5ce8e5d1-8e28-4299-9441-c291d76659ce" />
 <img width="904" height="277" alt="image" src="https://github.com/user-attachments/assets/e6f9e6bc-04b3-453c-bf35-94a60cc48da8" />
-
 ## 1.5 安装 Visual Studio 2019
 下载地址：[Visual Studio 2019 Community](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2019&source=VSLandingPage&cid=2030:310c1dac731b4525bdef19486f31261b)<br>
 官网只有VS2022版本，以下给出VS2029版本链接<br>
@@ -37,6 +36,9 @@ Desktop development with C++<br>
 Game development with C++<br>
 ## 1.6 安装 Unreal Engine
 下载 Unreal Engine 源码： UnrealEngine-carla.<br>
+选择UE4.26分支版本
+<img width="2479" height="1755" alt="image" src="https://github.com/user-attachments/assets/d31aecb0-3b28-44ba-9967-0807170a1450" />
+github主页：<https://github.com/CarlaUnreal/UnrealEngine/tree/carla><br>
 在解压后的文件夹中执行以下两个命令：<br>
 Setup.bat<br>
 GenerateProjectFiles.bat<br>
@@ -48,22 +50,17 @@ GenerateProjectFiles.bat<br>
 2.1 下载 CARLA 源码
 根据所需版本下载 CARLA 源码：<br>
 
+必须使用git，否则后续需要手动改版本，麻烦<br>
 git clone -b 0.9.14 https://github.com/carla-simulator/carla.git<br>
 2.2 下载 CARLA 资产库
 打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.14 版本资产库：
 
-bash
-Copy
-Edit
 https://carla-assets.s3.us-east-005.backblazeb2.com/20221201_5ec9328.tar.gz
 将下载的文件解压至 carla/Unreal/CarlaUE4/Content/Carla 目录。
 
 2.3 编译 Python API
 在 Visual Studio 2019 的 x64 Native Tools Command Prompt 中执行以下命令编译 Python API：
 
-bash
-Copy
-Edit
 make PythonAPI
 如果遇到编译错误，检查依赖包是否安装完整。可参考官方文档和其他社区博客进行故障排除。
 
@@ -78,9 +75,6 @@ Gtest 安装失败：如果安装失败，可删除 D:\carla0.9.15\carla0.9.15\U
 3.2 Git 配置
 设置代理加速 Git 下载：
 
-bash
-Copy
-Edit
 export HTTP_PROXY="http://127.0.0.1:7890"
 export HTTPS_PROXY="http://127.0.0.1:7890"
 export ALL_PROXY="socks5://127.0.0.1:7890"
@@ -90,21 +84,14 @@ export ALL_PROXY="socks5://127.0.0.1:7890"
 3.4 fatal error C1083 问题
 在 Setup.bat 文件中添加以下内容来解决 Version.h 找不到的错误：
 
-bash
-Copy
-Edit
+
 set carla_version="0.9"
 4. 其他注意事项
 使用 Conda 环境：确保 conda 在 x64 Native Tools Command Prompt 中正确配置，使用以下命令设置环境变量：
 
-bash
-Copy
-Edit
 set PATH=%PATH%;C:\ProgramData\anaconda3\condabin;C:\ProgramData\anaconda3\Scripts
 代理加速下载：若下载速度过慢，使用 VPN 或临时代理解决问题：
 
-bash
-Copy
-Edit
+
 set HTTP_PROXY=http://127.0.0.1:7890
 set HTTPS_PROXY=http://127.0.0.1:7890
