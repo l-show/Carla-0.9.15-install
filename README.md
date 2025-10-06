@@ -16,29 +16,29 @@ Make 3.8.1<br>
 将上述软件路径添加到系统环境变量中。<br>
 ## 1.4 安装 Python 及依赖项
 通过ANACONDA.NAVIGATOR配置python-3.8.20（确保版本与 CARLA Python API 兼容，建议使用 3.8）<br>
-<img width="960" height="541" alt="image" src="https://github.com/user-attachments/assets/dd318ff2-39fc-4239-99b9-570ab5a65b06" />
+<img width="960" height="541" alt="image" src="https://github.com/user-attachments/assets/dd318ff2-39fc-4239-99b9-570ab5a65b06" /><br>
 在命令行中确认 python -V 和 py -V 显示相同的版本。<br>不需要，后续可以解决
 安装以下依赖项：<br>
 pip3 install --upgrade pip<br>
 pip3 install --user setuptools<br>
 pip3 install --user wheel<br>
-<img width="1044" height="87" alt="image" src="https://github.com/user-attachments/assets/fbb910a2-3294-4879-a4e3-3c17a24544a2" />
-<img width="1237" height="109" alt="image" src="https://github.com/user-attachments/assets/5ce8e5d1-8e28-4299-9441-c291d76659ce" />
-<img width="904" height="277" alt="image" src="https://github.com/user-attachments/assets/e6f9e6bc-04b3-453c-bf35-94a60cc48da8" />
+<img width="1044" height="87" alt="image" src="https://github.com/user-attachments/assets/fbb910a2-3294-4879-a4e3-3c17a24544a2" /><br>
+<img width="1237" height="109" alt="image" src="https://github.com/user-attachments/assets/5ce8e5d1-8e28-4299-9441-c291d76659ce" /><br>
+<img width="904" height="277" alt="image" src="https://github.com/user-attachments/assets/e6f9e6bc-04b3-453c-bf35-94a60cc48da8" /><br>
 ## 1.5 安装 Visual Studio 2019
 下载地址：[Visual Studio 2019 Community](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2019&source=VSLandingPage&cid=2030:310c1dac731b4525bdef19486f31261b)<br>
 官网只有VS2022版本，以下给出VS2029版本链接<br>
 <https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2019&source=VSLandingPage&cid=2030:310c1dac731b4525bdef19486f31261b><br>
 在安装过程中勾选以下选项：
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5fed638f-d8d4-418b-947c-088c7fa2b14f" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0971f3e-95ef-4254-9d53-ed2f80af94bf" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5fed638f-d8d4-418b-947c-088c7fa2b14f" /><br>
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0971f3e-95ef-4254-9d53-ed2f80af94bf" /><br>
 Desktop development with C++<br>
 Game development with C++<br>
-<img width="1536" height="1020" alt="image" src="https://github.com/user-attachments/assets/e37d5da7-ca02-46dc-97f2-10399caff5ca" />
+<img width="1536" height="1020" alt="image" src="https://github.com/user-attachments/assets/e37d5da7-ca02-46dc-97f2-10399caff5ca" /><br>
 ## 1.6 安装 Unreal Engine
 下载 Unreal Engine 源码： UnrealEngine-carla.<br>
 选择UE4.26分支版本
-<img width="2479" height="1755" alt="image" src="https://github.com/user-attachments/assets/d31aecb0-3b28-44ba-9967-0807170a1450" />
+<img width="2479" height="1755" alt="image" src="https://github.com/user-attachments/assets/d31aecb0-3b28-44ba-9967-0807170a1450" /><br>
 github主页：<https://github.com/CarlaUnreal/UnrealEngine/tree/carla><br>
 <img width="513" height="99" alt="image" src="https://github.com/user-attachments/assets/d9a072f1-b1cb-40e5-ac45-75a7bdfe9734" /><br>
 399MB解压需要20-25分钟<br>
@@ -51,9 +51,9 @@ GenerateProjectFiles.bat<br>
 用vs2019打开解压出来的UE4.sln文件，在上方选择栏中选择编译工具“Development Editor”、“Win64”和“UnrealBuildTool”选项，在解决方案资源管理器中右键选择UE4项目，点击生成（Build）<br>
 使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。<br>
 需要20min<br>
-<img width="416" height="168" alt="image" src="https://github.com/user-attachments/assets/ce1a4ce3-76df-42e5-8d23-20e7085a2af9" />
+<img width="416" height="168" alt="image" src="https://github.com/user-attachments/assets/ce1a4ce3-76df-42e5-8d23-20e7085a2af9" /><br>
 等待成功之后在\UnrealEngine\Engine\Binaries\Win64下点击UE4Editor.exe，第一次加载会很慢，卡在45%或者75%，95%是正常的，等待渲染好出现UE界面即可。<br>
-<img width="416" height="188" alt="image" src="https://github.com/user-attachments/assets/864a741c-7089-4ecf-819e-3a4afc083549" />
+<img width="416" height="188" alt="image" src="https://github.com/user-attachments/assets/864a741c-7089-4ecf-819e-3a4afc083549" /><br>
 设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。<br>
 # 2. 安装 CARLA
 ## 2.1 下载 CARLA 源码
