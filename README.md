@@ -40,7 +40,7 @@ Game development with C++<br>
 选择UE4.26分支版本
 <img width="2479" height="1755" alt="image" src="https://github.com/user-attachments/assets/d31aecb0-3b28-44ba-9967-0807170a1450" />
 github主页：<https://github.com/CarlaUnreal/UnrealEngine/tree/carla><br>
-<img width="513" height="99" alt="image" src="https://github.com/user-attachments/assets/d9a072f1-b1cb-40e5-ac45-75a7bdfe9734" />
+<img width="513" height="99" alt="image" src="https://github.com/user-attachments/assets/d9a072f1-b1cb-40e5-ac45-75a7bdfe9734" /><br>
 399MB解压需要20-25分钟<br>
 解压会产生两层UnrealEngine-carla路径记得删除一层
 在解压后的文件夹中先后执行以下两个命令：<br>
