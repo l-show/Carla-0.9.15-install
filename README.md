@@ -130,10 +130,16 @@ py -3 setup.py bdist_egg bdist_wheel<br>
 <img width="519" height="162" alt="image" src="https://github.com/user-attachments/assets/2ac034b0-942f-449c-8d38-5a165935cb25" /><br>
 于是使用where python查看conda中python解释器路径<br>
 将第112行修改为<br>
-"Your conda python interpreter path" D:\carla0.9.15git\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
+"Your conda python interpreter path" **path_to_carla**\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
 例如<br>
-"C:\Users\admin\.conda\envs\Carla-0915\python.exe" D:\carla0.9.15git\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
+"C:\Users\admin\.conda\envs\Carla-0915\python.exe" D:\carla0.9.15\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
 然后make PythonAPI<br>
+### fatal error LNK1120: 50 个无法解析的外部命令 + failed with exit code 1120(比上面少)
+路径D:\carla-0.9.15\PythonAPI\carla\dependencies\lib里缺少了xerces的lib<br>
+将D:\carla0.9.15\Build\xerces-c-3.2.4-install\lib下的xerces-c_3.lib复制到D:\carla0.9.15\PythonAPI\carla\dependencies\lib<br>
+然后make PythonAPI<br>
+<img width="1719" height="916" alt="image" src="https://github.com/user-attachments/assets/0aecf378-7db3-4166-a28f-77ed002ed33d" /><br>
+# 成功！！！
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
