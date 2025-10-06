@@ -26,26 +26,29 @@ pip3 install --user wheel<br>
 <img width="1237" height="109" alt="image" src="https://github.com/user-attachments/assets/5ce8e5d1-8e28-4299-9441-c291d76659ce" />
 <img width="904" height="277" alt="image" src="https://github.com/user-attachments/assets/e6f9e6bc-04b3-453c-bf35-94a60cc48da8" />
 
-
 ## 1.5 安装 Visual Studio 2019
-下载地址：Visual Studio 2019 Community
+下载地址：[Visual Studio 2019 Community](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2019&source=VSLandingPage&cid=2030:310c1dac731b4525bdef19486f31261b)<br>
+官网只有VS2022版本，以下给出VS2029版本链接<br>
+<https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2019&source=VSLandingPage&cid=2030:310c1dac731b4525bdef19486f31261b><br>
 在安装过程中勾选以下选项：
-Desktop development with C++
-Game development with C++
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5fed638f-d8d4-418b-947c-088c7fa2b14f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0971f3e-95ef-4254-9d53-ed2f80af94bf" />
+Desktop development with C++<br>
+Game development with C++<br>
 ## 1.6 安装 Unreal Engine
-下载 Unreal Engine 源码： UnrealEngine-carla.
-在解压后的文件夹中执行以下两个命令：
-Setup.bat
-GenerateProjectFiles.bat
-使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。
+下载 Unreal Engine 源码： UnrealEngine-carla.<br>
+在解压后的文件夹中执行以下两个命令：<br>
+Setup.bat<br>
+GenerateProjectFiles.bat<br>
+使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。<br>
 
-设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。
+设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。<br>
 
-2. 安装 CARLA
+# 2. 安装 CARLA
 2.1 下载 CARLA 源码
-根据所需版本下载 CARLA 源码：
+根据所需版本下载 CARLA 源码：<br>
 
-git clone -b 0.9.14 https://github.com/carla-simulator/carla.git
+git clone -b 0.9.14 https://github.com/carla-simulator/carla.git<br>
 2.2 下载 CARLA 资产库
 打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.14 版本资产库：
 
