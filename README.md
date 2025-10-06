@@ -162,6 +162,12 @@ make: *** [CarlaUE4Editor] 错误 6
 把之前的D:\carla-0.9.15\PythonAPI\carla\dependencies\lib全复制过来<br>
 跳过重复的lib文件<br>
 开始（重新）make launch<br>
+# 一定要把除了X64的所有进程全部关了...make launch极其占用CPU
+<img width="395" height="245" alt="f0c99e0cc0a63ff2414c61ce6a3c351" src="https://github.com/user-attachments/assets/b642f7f2-f477-406a-a7fd-58103bb7c69b" /><br>
+我的i7-14700KF（卡爆）+5070Ti<br>
+等待30-60min<br>
+<img width="3790" height="2076" alt="image" src="https://github.com/user-attachments/assets/402d27ca-afef-4f35-b57b-713e935e40f5" /><br>
+# 成功了...！！！
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
