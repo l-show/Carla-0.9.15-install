@@ -140,6 +140,28 @@ py -3 setup.py bdist_egg bdist_wheel<br>
 然后make PythonAPI<br>
 <img width="1719" height="916" alt="image" src="https://github.com/user-attachments/assets/0aecf378-7db3-4166-a28f-77ed002ed33d" /><br>
 # 成功！！！
+cd /carla0.9.15/PythonAPI/carla/dist<br>
+(Carla-0915) D:\carla0.9.15\PythonAPI\carla\dist>ls<br>
+carla-0.9.15-cp38-cp38-win_amd64.whl  carla-0.9.15-py3.8-win-amd64.egg<br>
+(Carla-0915) D:\carla0.9.15\PythonAPI\carla\dist>pip3 install carla-0.9.15-cp38-cp38-win_amd64.whl<br>
+Processing d:\carla0.9.15\pythonapi\carla\dist\carla-0.9.15-cp38-cp38-win_amd64.whl<br>
+Installing collected packages: carla<br>
+Successfully installed carla-0.9.15<br>
+## 2.4 运行Carla-0.9.15-编译版
+在Carla根目录下make launch<br>
+### LINK : fatal error LNK1181: 无法打开输入文件“D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\lib\xerces-c_3.lib”
+```
+正在创建库 D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\HoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\HoudiniEngineEditor\UE4Editor-HoudiniEngineEditor.lib 和对象 D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\HoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\HoudiniEngineEditor\UE4Editor-HoudiniEngineEditor.exp
+  [64/66] UE4Editor-CarlaTools.dll
+  LINK : fatal error LNK1181: 无法打开输入文件“D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\lib\xerces-c_3.lib”
+  [65/66] UE4Editor-HoudiniEngineEditor.dll
+    正在创建库 D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\HoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\HoudiniEngineEditor\UE4Editor-HoudiniEngineEditor.suppressed.lib 和对象 D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\HoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\HoudiniEngineEditor\UE4Editor-HoudiniEngineEditor.suppressed.exp
+make: *** [CarlaUE4Editor] 错误 6
+```
+路径D:\carla-0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\lib下缺少lib文件<br>
+把之前的D:\carla-0.9.15\PythonAPI\carla\dependencies\lib全复制过来<br>
+跳过重复的lib文件<br>
+开始（重新）make launch<br>
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
