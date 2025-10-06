@@ -83,6 +83,7 @@ https://carla-assets.s3.us-east-005.backblazeb2.com/20231108_c5101a5.tar.gz<br>
 ### 版本更新-2025/10/06
 先在D:\carla0.9.15\Util\InstallersWin路径下修改install_zlib.bat中51行set ZLIB_VERSION=1.2.13为1.3.1<br>
 再在D:\carla0.9.15\Util\InstallersWin路径下修改install_xercesc.bat中49行set XERCESC_VERSION=3.2.3为3.2.4<br>
+再在D:\carla0.9.15\Util\BuildTools路径下修改BuildOSM2ODR.bat第117和118行的XERCESC版本为3.2.4<br>
 将下载好的boost_1_80_0.zip放在路径D:\carla0.9.15\Build下，没有就先新建一个<br>
 ### 端口代理
 在 Visual Studio 2019 的 x64 Native Tools Command Prompt 中执行以下命令设置aconda路径<br>
@@ -104,6 +105,25 @@ HTTP_PROXY=http://127.0.0.1:7890<br>
 (Carla-0915) D:\carla0.9.15>make PythonAPI<br>
 make PythonAPI时保持VPN稳定<br>
 如果遇到编译错误，检查依赖包是否安装完整。可参考官方文档和其他社区博客进行故障排除。<br>
+现在报错
+###  fatal error C1083: 无法打开包括文件: “OSM2ODR.h”: No such file or directory
+D:\carla0.9.15\PythonAPI\carla\source\libcarla\OSM2ODR.cpp(7): fatal error C1083: 无法打开包括文件: “OSM2ODR.h”: No such file or directory<br>
+error: command 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\cl.exe' failed with exit code 2<br>
+正常到这一步就到最后一个包osm2odr了<br>
+D:\carla0.9.15\PythonAPI\carla\dependencies\include里没有这个文件<br>
+现在需要D:\carla0.9.15\Util\BuildTools找到文件BuildOSM2ODR.bat删除第119行%OSM2ODR_SOURCE_PATH%两边的引号<br>
+然后需要D:\carla0.9.15\Util\BuildTools找到文件BuildOSM2ODR.bat将第112行<br>
+cmake -G %GENERATOR% %PLATFORM%^<br>
+改成<br>
+cmake -G %GENERATOR% -A x64^<br>
+然后在D:\carla0.9.15\Util\BuildTools找到文件Setup.bat删除Download and install Google Test 部分，这部分检测已经存在的文件夹有“批处理标签”退出代码的问题<br>
+现在删除osm2odr重新make PythonAPI<br>
+###  error LNK2001: 无法解析的外部符号 + fatal error LNK1120: n 个无法解析的外部命令 + failed with exit code 1120
+osm2odr-visualstudio也下载完成了
+检查D:\carla0.9.15\PythonAPI\carla\dependencies\include下确实存在“OSM2ODR.h”
+同样检查D:\carla0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\include下确实存在“OSM2ODR.h”
+打开D:\carla0.9.15\PythonAPI\carla\build发现构建文件并不是py3.8，是最新的版本，如
+这是因为D:\carla0.9.15\Util\BuildTools
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
