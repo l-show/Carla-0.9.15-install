@@ -51,51 +51,84 @@ GenerateProjectFiles.bat<br>
 小于20s<br>
 用vs2019打开解压出来的UE4.sln文件，在上方选择栏中选择编译工具“Development Editor”、“Win64”和“UnrealBuildTool”选项，在解决方案资源管理器中右键选择UE4项目，点击生成（Build）<br>
 使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。<br>
+需要20min<br>
 <img width="416" height="168" alt="image" src="https://github.com/user-attachments/assets/ce1a4ce3-76df-42e5-8d23-20e7085a2af9" />
 等待成功之后在\UnrealEngine\Engine\Binaries\Win64下点击UE4Editor.exe，第一次加载会很慢，卡在45%或者75%，95%是正常的，等待渲染好出现UE界面即可。<br>
+<img width="416" height="188" alt="image" src="https://github.com/user-attachments/assets/864a741c-7089-4ecf-819e-3a4afc083549" />
 设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。<br>
 
 # 2. 安装 CARLA
-2.1 下载 CARLA 源码
+## 2.1 下载 CARLA 源码
 根据所需版本下载 CARLA 源码：<br>
-
 必须使用git，否则后续需要手动改版本，麻烦<br>
-git clone -b 0.9.14 https://github.com/carla-simulator/carla.git<br>
-2.2 下载 CARLA 资产库
-打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.14 版本资产库：
-
-https://carla-assets.s3.us-east-005.backblazeb2.com/20221201_5ec9328.tar.gz
-将下载的文件解压至 carla/Unreal/CarlaUE4/Content/Carla 目录。
-
-2.3 编译 Python API
-在 Visual Studio 2019 的 x64 Native Tools Command Prompt 中执行以下命令编译 Python API：
-
-make PythonAPI
-如果遇到编译错误，检查依赖包是否安装完整。可参考官方文档和其他社区博客进行故障排除。
-
-3. 常见问题及解决
-3.1 编译问题
+open git bash here<br>
+设置 HTTP 代理
+export HTTP_PROXY="http://127.0.0.1:7890"
+设置 HTTPS 代理
+export HTTPS_PROXY="http://127.0.0.1:7890"
+设置所有协议的代理 (通常 Git 也能识别这个)
+export ALL_PROXY="socks5://127.0.0.1:7890"
+取消所有的代理
+unset HTTP_PROXY
+unset HTTPS_PROXY
+unset ALL_PROXY
+端口号为自己VPN软件的端口号
+git clone -b 0.9.15 https://github.com/carla-simulator/carla.git<br>
+## 2.2 下载 CARLA 资产库
+打开 carla/Util/ContentVersions.txt 文件，根据版本选择对应的资产库下载链接。例如，0.9.15 版本资产库：
+https://carla-assets.s3.us-east-005.backblazeb2.com/20231108_c5101a5.tar.gz
+将下载的文件解压重命名至 carla/Unreal/CarlaUE4/Content/Carla 目录。
+其中需注意，carla已不再使用该txt文件中下载链接指向的AWS云服务，新的资产库文件使用backblazeb2云服务，下载链接应更新为https://carla-assets.s3.us-east-005.backblazeb2.com/PUT_FILE_ID_HERE.tar.gz。
+解压需要几分钟，注意路径是Content/Carla
+# 准备开始编译！！！
+## 2.3 编译 Python API
+### 版本更新-2025/10/06
+先在D:\carla0.9.15\Util\InstallersWin路径下修改install_zlib.bat中51行set ZLIB_VERSION=1.2.13为1.3.1<br>
+再在D:\carla0.9.15\Util\InstallersWin路径下修改install_xercesc.bat中49行set XERCESC_VERSION=3.2.3为3.2.4<br>
+将下载好的boost_1_80_0.zip放在路径D:\carla0.9.15\Build下，没有就先新建一个<br>
+### 端口代理
+在 Visual Studio 2019 的 x64 Native Tools Command Prompt 中执行以下命令设置aconda路径<br>
+set PATH=%PATH%;C:\ProgramData\anaconda3\condabin;C:\ProgramData\anaconda3\Scripts;C:\ProgramData\anaconda3\Library\bin<br>
+cd进入路径并激活conda环境<br>
+D:\carla0.9.15>conda activate Carla-0915<br>
+(Carla-0915) D:\carla0.9.15>python -V<br>
+Python 3.8.20<br>
+启动网络代理，Clash of Android端口7890<br>
+set HTTP_PROXY=http://127.0.0.1:7890<br>
+set HTTPS_PROXY=http://127.0.0.1:7890<br>
+set ALL_PROXY=socks5://127.0.0.1:7890<br>
+查看是否代理成功env|grep -i proxy<br>
+(Carla-0915) D:\carla0.9.15>env|grep -i proxy<br>
+ALL_PROXY=socks5://127.0.0.1:7890<br>
+HTTPS_PROXY=http://127.0.0.1:7890<br>
+HTTP_PROXY=http://127.0.0.1:7890<br>
+### 开始编译 Python API
+(Carla-0915) D:\carla0.9.15>make PythonAPI<br>
+make PythonAPI时保持VPN稳定<br>
+如果遇到编译错误，检查依赖包是否安装完整。可参考官方文档和其他社区博客进行故障排除。<br>
+# 3. 常见问题及解决
+## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
 
 Gtest 安装失败：如果安装失败，可删除 D:\carla0.9.15\carla0.9.15\Util\BuildTools 下的 Gtest 配置，改为手动安装。
 
 缺少依赖文件：如 OSM2ODR.h 文件缺失，请检查 carla/Build 目录下的依赖文件，必要时手动下载。
 
-3.2 Git 配置
+## 3.2 Git 配置
 设置代理加速 Git 下载：
 
 export HTTP_PROXY="http://127.0.0.1:7890"
 export HTTPS_PROXY="http://127.0.0.1:7890"
 export ALL_PROXY="socks5://127.0.0.1:7890"
-3.3 编译时缺失 xerces-c_3.lib
+## 3.3 编译时缺失 xerces-c_3.lib
 在 carla/Unreal/CarlaUE4/Plugins/Carla/CarlaDependencies/lib 下缺少 xerces-c_3.lib 文件时，复制对应文件至该目录即可解决问题。
 
-3.4 fatal error C1083 问题
+## 3.4 fatal error C1083 问题
 在 Setup.bat 文件中添加以下内容来解决 Version.h 找不到的错误：
 
 
 set carla_version="0.9"
-4. 其他注意事项
+##4. 其他注意事项
 使用 Conda 环境：确保 conda 在 x64 Native Tools Command Prompt 中正确配置，使用以下命令设置环境变量：
 
 set PATH=%PATH%;C:\ProgramData\anaconda3\condabin;C:\ProgramData\anaconda3\Scripts
