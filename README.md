@@ -46,10 +46,13 @@ github主页：<https://github.com/CarlaUnreal/UnrealEngine/tree/carla><br>
 解压会产生两层UnrealEngine-carla路径记得删除一层
 在解压后的文件夹中先后执行以下两个命令：<br>
 Setup.bat<br>
-需要2h
+需要2h<br>
 GenerateProjectFiles.bat<br>
+小于20s<br>
+用vs2019打开解压出来的UE4.sln文件，在上方选择栏中选择编译工具“Development Editor”、“Win64”和“UnrealBuildTool”选项，在解决方案资源管理器中右键选择UE4项目，点击生成（Build）<br>
 使用 VS2019 打开 UE4.sln，选择 “Development Editor”、“Win64”和 “UnrealBuildTool” 选项，右键点击 UE4 项目并选择生成（Build）。<br>
-
+<img width="416" height="168" alt="image" src="https://github.com/user-attachments/assets/ce1a4ce3-76df-42e5-8d23-20e7085a2af9" />
+等待成功之后在\UnrealEngine\Engine\Binaries\Win64下点击UE4Editor.exe，第一次加载会很慢，卡在45%或者75%，95%是正常的，等待渲染好出现UE界面即可。<br>
 设置环境变量 UE4_ROOT 指向 Unreal Engine 的安装目录。<br>
 
 # 2. 安装 CARLA
