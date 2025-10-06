@@ -119,11 +119,21 @@ cmake -G %GENERATOR% -A x64^<br>
 然后在D:\carla0.9.15\Util\BuildTools找到文件Setup.bat删除Download and install Google Test 部分，这部分检测已经存在的文件夹有“批处理标签”退出代码的问题<br>
 现在删除osm2odr重新make PythonAPI<br>
 ###  error LNK2001: 无法解析的外部符号 + fatal error LNK1120: n 个无法解析的外部命令 + failed with exit code 1120
-osm2odr-visualstudio也下载完成了
-检查D:\carla0.9.15\PythonAPI\carla\dependencies\include下确实存在“OSM2ODR.h”
-同样检查D:\carla0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\include下确实存在“OSM2ODR.h”
-打开D:\carla0.9.15\PythonAPI\carla\build发现构建文件并不是py3.8，是最新的版本，如
-这是因为D:\carla0.9.15\Util\BuildTools
+osm2odr-visualstudio也下载完成了<br>
+检查D:\carla0.9.15\PythonAPI\carla\dependencies\include下确实存在“OSM2ODR.h”<br>
+同样检查D:\carla0.9.15\Unreal\CarlaUE4\Plugins\Carla\CarlaDependencies\include下确实存在“OSM2ODR.h”<br>
+打开D:\carla0.9.15\PythonAPI\carla\build发现构建文件并不是py3.8，是最新的版本，如<br>
+这是因为D:\carla0.9.15\Util\BuildTools下的BuildPythonAPI.bat第112行<br>
+py -3 setup.py bdist_egg bdist_wheel<br>
+永远会使用conda中最新的python环境<br>
+即py -V检查的版本<br>
+<img width="519" height="162" alt="image" src="https://github.com/user-attachments/assets/2ac034b0-942f-449c-8d38-5a165935cb25" /><br>
+于是使用where python查看conda中python解释器路径<br>
+将第112行修改为<br>
+"Your conda python interpreter path" D:\carla0.9.15git\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
+例如<br>
+"C:\Users\admin\.conda\envs\Carla-0915\python.exe" D:\carla0.9.15git\PythonAPI\carla\setup.py bdist_egg bdist_wheel<br>
+然后make PythonAPI<br>
 # 3. 常见问题及解决
 ## 3.1 编译问题
 zlib 版本问题：确保使用正确版本的 zlib，若安装失败，手动下载并解压。
